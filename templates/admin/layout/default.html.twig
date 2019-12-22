@@ -1,0 +1,38 @@
+{% extends 'base.html.twig' %}
+
+{% block stylesheets %}
+ 	 <link rel="stylesheet" href="{{ asset('assets/css/app.min.css') }}">
+	 <link rel="stylesheet" href="{{ asset('assets/css/style.css') }}">
+	 <link rel="stylesheet" href="{{ asset('assets/css/components.css') }}">
+ 	 <link rel='shortcut icon' type='image/x-icon' href='assets/img/favicon.ico' />
+	 {{ encore_entry_link_tags('app') }}
+{% endblock %}
+
+{% block body %}
+{# <div class="loader"></div> #}
+	<div id="app">
+       <div class="main-wrapper main-wrapper-1">
+
+	 	<!-- Sidebar -->
+		{% include 'admin/layout/sidebar.html.twig' %}
+		<!-- Navbar -->
+		{% include 'admin/layout/navbar.html.twig' %}
+	
+		<!--Main layout-->
+			{% if contenu is defined %}
+				{% include contenu %}
+			{% endif %}
+		<!--Main layout-->
+		{% include 'admin/layout/footer.html.twig' %}
+
+	</div>
+  </div>
+{% endblock %}
+
+
+	{% block javascripts %}
+		<script src="{{ asset('assets/js/app.min.js') }}"></script>
+		<script src="{{ asset('assets/js/scripts.js') }}"></script>
+		{{ encore_entry_script_tags('app') }}
+	{% endblock %}
+	
